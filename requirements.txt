@@ -36,8 +36,8 @@ flask-cors
 sqlalchemy
 python-jose[cryptography]
 passlib[bcrypt]
-fastapi
-uvicorn[standard]
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
 python-multipart
 pydantic[email]
 PyPDF2
