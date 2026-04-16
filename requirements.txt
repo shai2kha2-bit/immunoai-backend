@@ -38,3 +38,7 @@ python-jose[cryptography]
 passlib[bcrypt]
 fastapi
 uvicorn[standard]
+python-multipart
+pydantic[email]
+PyPDF2
+sqlite3
