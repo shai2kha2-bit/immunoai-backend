@@ -13,20 +13,29 @@ from auth import (
 )
 from datetime import datetime
 
-app = FastAPI(
-    title="ImmunoAI Backend",
-    description="Autoimmune Disease Detection API",
-    version="1.0.0"
-)
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=False,
-    allow_methods=["GET", "POST", "OPTIONS", "DELETE"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"message": "Backend Live!"}
+
+@app.get("/health")
+async def health():
+    return {"status": "OK"}
+
+@app.get("/api/users")
+async def users():
+    return [{"id": 1, "name": "Test"}]
 # Initialize database on startup
 init_db()
 
